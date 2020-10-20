@@ -2,6 +2,7 @@ import os
 import csv
 import sys
 from tqdm import tqdm
+
 ROOT="./"
 FARS_TEMPLATE="FARS_NationalCSV"
 CONFIG_PATH=os.path.join(ROOT, 'config')
@@ -59,21 +60,45 @@ def itemParser10(item, filetype):
     (standardization act compliant)
     '''
     if filetype == 'NMIMPAIR':
-        item['STATE'] = int(item['STATE'])
-        item['ST_CASE'] = int(item['ST_CASE'])
-        item['VEH_NO'] = int(item['VEH_NO'])
-        item['PER_NO'] = int(item['PER_NO'])
-        item['NMIMPAIR'] = int(item['NMIMPAIR'])
+        for key in item.keys():
+            if item[keu] == '':
+                pass
+            else:
+                item[key] = int(item[key])
     elif filetype == 'DRIMPAIR':
-        pass
+        for key in items.keys():
+            if item[key] == '':
+                pass
+            else:
+                item[key] = int(item[key])
     elif filetype == 'SAFETYEQ':
-        pass
-    elif filetype == 'ACCIDENT':
-        pass
+        for key in items.keys():
+            if item[key] == '':
+                pass
+            else:
+                item[key] = int(item[key])
+    elif filetype == 'ACCIDENT': 
+        for key in item.keys():
+            if item[key] == '':
+                pass
+            if key == 'LATITUDE' or key == 'LONGITUD':
+                item[key] = float(item[key])
+            elif key == 'TWAY_ID' or key == 'TWAY_ID2' or key == 'RAIL':
+                pass
+            else:
+                item[key] = int(item[key])
     elif filetype == 'VIOLATN':
-        pass
+        for key in item.keys():
+            if item[key] == '':
+                pass
+            else:
+                item[key] = int(item[key])
     elif filetype == 'CEVENT':
-        pass
+        for key in item.keys():
+            if item[key] == '':
+                pass
+            else:
+                item[key] = int(item[key])
     elif filetype == 'VINDECODE':
         pass
     elif filetype == 'MIDRVACC':
@@ -120,6 +145,7 @@ def itemParser10(item, filetype):
         print("WARNING: No case detected! File may not follow 2010+ format.")
     return item
 
+'''
 if __name__ == '__main__':
     # API Testing area:
     fars = generateFARS(2018)
@@ -127,9 +153,11 @@ if __name__ == '__main__':
     
     #for far in fars_2018_files:
     #    print(far)
-    print(fars_2018_files[0])
+    index = 3
+    print(fars_2018_files[index])
     category = grabCat(fars_2018_files)
-    _filecat = category[0]
-    print(_filecat)
-    test = csvRead(os.path.join(ROOT, fars, fars_2018_files[0]), _filecat)
+    _filecat = category[index]
+    test = csvRead(os.path.join(ROOT, fars, fars_2018_files[index]), _filecat)
     print(test[0])
+    print(len(test[0]))
+'''

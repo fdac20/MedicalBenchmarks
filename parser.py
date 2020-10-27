@@ -145,6 +145,43 @@ def itemParser10(item, filetype):
         print("WARNING: No case detected! File may not follow 2010+ format.")
     return item
 
+def mapState(input_state):
+    orderedStates = [
+                'Alabama',
+                'Alaska',
+                'Arizona',
+                'Arkansas',
+                'California',
+                'Colorado',
+                'Connecticut',
+                'Delaware',
+                'District of Columbia',
+                'Florida',
+                'Georgia',
+                'Hawaii',
+                'Idaho',
+                'Illinois',
+                'Indiana',
+                'Iowa',
+                'Kansas',
+                'Kentucky',
+                'Louisiana',
+                'Maine',
+                'Maryland',
+                'Massachusetts',
+                'Michigan',
+                'Minnesota'
+
+            ]
+
+    if input_state <= 2:
+        return orderedState[input_state+1]
+    elif input_state <= 6:
+        return orderedState[input_state-1]
+    elif input_state <= 13:
+        return orderedStates[input_state-2]
+    return 1
+
 '''
 if __name__ == '__main__':
     # API Testing area:

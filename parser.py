@@ -149,15 +149,18 @@ def mapState(input_state):
     orderedStates = [
                 'Alabama',
                 'Alaska',
+                '',
                 'Arizona',
                 'Arkansas',
                 'California',
+                '',
                 'Colorado',
                 'Connecticut',
                 'Delaware',
                 'District of Columbia',
                 'Florida',
                 'Georgia',
+                '',
                 'Hawaii',
                 'Idaho',
                 'Illinois',
@@ -170,8 +173,18 @@ def mapState(input_state):
                 'Maryland',
                 'Massachusetts',
                 'Michigan',
-                'Minnesota'
-
+                'Minnesota',
+                'Mississippi',
+                'Missouri',
+                'Montana',
+                'Nebraska',
+                'Nevada',
+                'New Hampshire',
+                'New Jersey',
+                'New Mexico',
+                'New York',
+                'North Carolina',
+                ''
             ]
 
     if input_state <= 2:

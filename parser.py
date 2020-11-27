@@ -145,6 +145,13 @@ def itemParser10(item, filetype):
         print("WARNING: No case detected! File may not follow 2010+ format.")
     return item
 
+def readSpeed(filename):
+    with open(filename) as csvFile:
+        csvReader = csv.DictReader(csvFile)
+        _ret = list(csvReader)
+        __ret = [(i['State'],int(i['Speed Limit'])) for i in _ret]
+        return __ret
+
 def mapState(input_state):
     orderedStates = [
                 'Alabama',
@@ -195,8 +202,10 @@ def mapState(input_state):
         return orderedStates[input_state-2]
     return 1
 
-'''
+
 if __name__ == '__main__':
+    readSpeed('highway_speed.csv')
+'''
     # API Testing area:
     fars = generateFARS(2018)
     fars_2018_files = grabFiles(fars)

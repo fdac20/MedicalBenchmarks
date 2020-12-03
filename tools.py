@@ -1,4 +1,3 @@
-from config import config
 import parser
 import os
 import sys
